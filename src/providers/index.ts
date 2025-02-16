@@ -8,6 +8,7 @@ import * as ProviderBit2C from './ProviderBit2C';
 import * as ProviderBitfinex from './ProviderBitfinex';
 import * as ProviderBitMEX from './ProviderBitMEX';
 import * as ProviderBitPay from './ProviderBitPay';
+import * as ProviderBitkub from './ProviderBitkub';
 import * as ProviderBitso from './ProviderBitso';
 import * as ProviderBitstamp from './ProviderBitstamp';
 import * as ProviderBittrex from './ProviderBittrex';
@@ -27,7 +28,6 @@ import * as ProviderMEXC from './ProviderMEXC';
 import * as ProviderNobitex from './ProviderNobitex';
 import * as ProviderPaymium from './ProviderPaymium';
 import * as ProviderPoloniex from './ProviderBitPay';
-import * as ProviderSatangPro from './ProviderSatangPro';
 import * as ProviderTomoX from './ProviderTomoX';
 import * as ProviderVccExchange from './ProviderVccExchange';
 import * as ProviderBybit from './ProviderBybit';
@@ -40,6 +40,7 @@ export const Providers: Record<string, BaseProvider.Api> = {
   bitfinex: new ProviderBitfinex.Api(),
   bitmex: new ProviderBitMEX.Api(),
   bitpay: new ProviderBitPay.Api(),
+  bitkub: new ProviderBitkub.Api(),
   bitso: new ProviderBitso.Api(),
   bitstamp: new ProviderBitstamp.Api(),
   bittrex: new ProviderBittrex.Api(),
@@ -61,7 +62,6 @@ export const Providers: Record<string, BaseProvider.Api> = {
   nobitex: new ProviderNobitex.Api(),
   paymium: new ProviderPaymium.Api(),
   poloniex: new ProviderPoloniex.Api(),
-  satangpro: new ProviderSatangPro.Api(),
   tomox: new ProviderTomoX.Api(),
   vccexchange: new ProviderVccExchange.Api(),
 };

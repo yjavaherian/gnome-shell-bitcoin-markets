@@ -687,19 +687,17 @@ class Api$o extends Api {
 }
 
 class Api$p extends Api {
-    apiName = 'Satang.pro';
-    apiDocs = [['API Docs', 'https://docs.satang.pro/apis/public/orders']];
+    apiName = 'Bitkub';
+    apiDocs = [['API Docs', 'https://github.com/bitkub/bitkub-official-api-docs/blob/master/restful-api.md#get-apimarketbids']];
     interval = 60; // unclear, should be safe
     getUrl({ base, quote }) {
-        return 'https://api.tdax.com/api/orders/?pair=' + `${base}_${quote}`.toLowerCase();
+      return 'https://api.bitkub.com/api/market/bids?lmt=1&sym=' + `${quote}_${base}`.toLowerCase();
     }
     getLast(data) {
-        const bidding = parseFloat(data.bid[0].price);
-        const asking = parseFloat(data.ask[0].price);
-        return (asking - bidding) * 0.5 + bidding;
+      return data.result[0][3]; // rate
     }
     getDefaultTicker() {
-        return { base: 'BTC', quote: 'THB' };
+      return { base: 'BTC', quote: 'THB' };
     }
 }
 
@@ -822,6 +820,7 @@ const Providers = {
     bitfinex: new Api$4(),
     bitmex: new Api$5(),
     bitpay: new Api$6(),
+    bitkub: new Api$p(),
     bitso: new Api$7(),
     bitstamp: new Api$8(),
     bittrex: new Api$9(),
@@ -843,7 +842,6 @@ const Providers = {
     nobitex: new Api$n(),
     paymium: new Api$o(),
     poloniex: new Api$6(),
-    satangpro: new Api$p(),
     tomox: new Api$q(),
     vccexchange: new Api$r(),
 };
